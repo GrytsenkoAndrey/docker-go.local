@@ -30,3 +30,31 @@ CMD ["./main"]
 # docker run --name=go-web-app -p 80:8080 go-app
 
 # $ docker run --rm golang:1.9 go env GOROOT /usr/local/go
+
+############################
+#FROM golang:1.9.3 as build-env
+#
+## allows app_env to be set during build (defaults to empty string)
+#ARG app_env
+## sets an environment variable to app_env argument, this way the variable     will persist in the container for use in code
+#ENV APP_ENV $app_env
+#
+#COPY ./ /go/src/github.com/Name/ProjectName/
+#
+#WORKDIR /go/src/github.com/Name/ProjectName/app
+#
+## install all dependencies
+#RUN go get ./...
+#
+## build the binary
+#RUN go build -o /my_app
+#
+## final stage
+#FROM scratch
+#
+#COPY --from=build-env /my_app /
+#
+## Put back once we have an application
+#CMD ["/my_app"]
+#
+#EXPOSE 8080
