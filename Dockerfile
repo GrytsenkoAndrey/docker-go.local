@@ -1,5 +1,9 @@
 FROM golang:latest
 
+RUN set -eux; \
+    export GOROOT="$(go env GOROOT)"; \
+    ./run-tool-which-requires-GOROOT-set.sh
+
 WORKDIR /app
 
 COPY . /app
@@ -24,3 +28,5 @@ CMD ["./main"]
 
 # docker build . -t go-app
 # docker run --name=go-web-app -p 80:8080 go-app
+
+# $ docker run --rm golang:1.9 go env GOROOT /usr/local/go
