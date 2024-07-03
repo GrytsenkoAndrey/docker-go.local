@@ -22,4 +22,5 @@ CMD ["./main"]
 # remove all images
 # docker rmi $(docker images -q)
 
+# docker build . -t go-app
 # docker run --name=go-web-app -p 80:8080 go-app
