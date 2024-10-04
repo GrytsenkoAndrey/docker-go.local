@@ -31,6 +31,16 @@ CMD ["./main"]
 
 # $ docker run --rm golang:1.9 go env GOROOT /usr/local/go
 
+
+
+
+# docker system prune -f : to remove all the stopped containers (docker do not touch the running containers)
+
+# docker system prune -a : to remove all the stopped containers (docker do not touch the running containers) + unused images
+
+# docker rm <container_id> : remove a specific container, it should be stopped before (docker stop <container_id>)
+
+
 ############################
 #FROM golang:1.9.3 as build-env
 #
